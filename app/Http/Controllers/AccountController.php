@@ -50,16 +50,14 @@ class AccountController extends Controller
     public function postSignin(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string'],
             'email' => ['required','email'],
             'password' => ['required', 'min:8']
         ],
         [
-        'name.required' => 'ユーザーネームは必須です。',
         'email.required'  => 'メールアドレスは必須です。',
         'password.required'  => 'パスワードは必須です。',
         ]);
-    if(Auth::attempt(['name' => $request->input('name'),'email' => $request->input('email'), 'password' => $request->input('password')])){
+    if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
         return view('account.test');
     }
         return redirect()->back();

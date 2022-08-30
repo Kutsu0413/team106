@@ -18,10 +18,6 @@
         <h2 class="title mb-5">商品管理システム</h2>
         <div class="row">
             <div class="mb-3">
-                <label for="exampleInputName" class="form-label">ユーザーネーム</label>
-                <input type="name" name="name" class="form-control" id="InputName" >
-            </div>
-            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">メールアドレス</label>
                 <input type="email" name="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
             </div>
