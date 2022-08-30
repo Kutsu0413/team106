@@ -21,7 +21,20 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'password_confirmation',
     ];
+
+    
+    public function InsertUser($request)
+    {
+        // リクエストデータを基に管理マスターユーザーに登録する
+        return $this->create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->input('password')),
+            'password_confirmation' => bcrypt($request->input('password')),
+        ]);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
