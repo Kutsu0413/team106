@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- バリデーションエラーの表示 -->
-    @include('common.error')
+    @include('account.error')
     <div class="container mt-5">
     <form class="form" action="{{ route('login.user') }}" method="POST" > 
     @csrf  

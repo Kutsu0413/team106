@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'password_confirmation',
+        'role',
     ];
 
     
@@ -31,12 +31,11 @@ class User extends Authenticatable
         return $this->create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => bcrypt($request->input('password')),
-            'password_confirmation' => bcrypt($request->input('password')),
         ]);
     }
 
- 
 
     /**
      * The attributes that should be hidden for serialization.

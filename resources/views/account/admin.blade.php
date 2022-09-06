@@ -12,12 +12,9 @@
 
 <div>
 
-    <h1>共用画面</h1>
-
-    <a href="/admin">管理者画面</a>
+        <h1> 管理者</h1>
 
 
-</div>
     
 </body>
 </html>

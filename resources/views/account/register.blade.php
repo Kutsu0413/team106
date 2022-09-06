@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- バリデーションエラーの表示 -->
-    @include('common.error')
+    @include('account.error')
     <div class="container mt-5">
     <form class="form" action="{{ route('register.user') }}" method="POST" >
     @csrf  
@@ -25,6 +25,7 @@
                 <label for="exampleInputEmail1" class="form-label">メールアドレス</label>
                 <input type="email" name="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
             </div>
+            <input class="form-check-input" name="role" type="hidden" id="inlineRadio1" value="1">
             <div class="mb-3 ">
                 <label for="exampleInputPassword1" class="form-label">パスワード</label>
                 <input type="password" name="password" class="form-control" id="InputPassword">
@@ -37,7 +38,7 @@
         <div class="d-grid gap-2 col-6 mx-auto">
             <button class="btn btn-primary mb-2" type="submit">アカウント登録</button>
         </div>
-        <a href="/"><p class="link">ログイン</p></a>
+        <a href="/"><p class="link">ログイン画面へ</p></a>
 
         
     </form>

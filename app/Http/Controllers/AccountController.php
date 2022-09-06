@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Gate;
 
 class AccountController extends Controller
 {
@@ -13,14 +14,13 @@ class AccountController extends Controller
         $this->user = new User();
     }
 
-    public function index()
-    {
-        $users = User::all();
-        return view('account.login', [
-            'users' => $users,
-        ]);
-    }
-
+    // public function index()
+    // {
+    //     $users = User::all();
+    //     return view('account.login', [
+    //         'users' => $users,
+    //     ]);
+    // }
     /**
      * 登録処理
      */
@@ -30,20 +30,23 @@ class AccountController extends Controller
 
         $request->validate([
             'name' => ['required', 'string'],
-            'email' => ['required','email'],
-            'password' => ['required', 'min:8', 'confirmed']
+            'email' => ['required','email','unique:users'],
+            'password' => ['required', 'min:8','confirmed']
         ],
         [
-                'name.required' => 'ユーザーネームは必須です。',
-                'email.required'  => 'メールアドレスは必須です。',
-                'password.required'  => 'パスワードは必須です。',
+                'name.required' => 'ユーザーネームは必須です',
+                'email.required'  => 'メールアドレスは必須です',
+                'email.unique'  => 'メールアドレスは登録済みです',
+                'password.required'  => 'パスワードは必須です',
+                'password.min'  => 'パスワードは8文字以上で入力してください',
                 'password.confirmed'  => 'パスワードが一致しません',
         ]);
 
         $registerUser = $this->user->InsertUser($request);  
-        return view('account.login');
+        
+        return redirect('/');
     }
-        /**
+    /**
      * ログイン処理
      */
 
@@ -57,9 +60,10 @@ class AccountController extends Controller
         'email.required'  => 'メールアドレスは必須です。',
         'password.required'  => 'パスワードは必須です。',
         ]);
-    if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
-        return view('account.test');
+        if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
+            return redirect('test');
+            //view('account.test');
     }
-        return redirect()->back();
+        return redirect()->back()->withErrors(['msg'=>'不正な入力値です']);
     }
 }
