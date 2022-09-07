@@ -15,6 +15,9 @@ class CreateHomeTable extends Migration
     {
         Schema::create('home', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned();
+            $table->string('item_name');
+            $table->string('item_detail');
             $table->timestamps();
         });
     }
