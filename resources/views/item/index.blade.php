@@ -12,9 +12,9 @@
 <body class="container" style="text-align:center">
 
   <div>
-    <h1>商品一覧</h1>
+    <h1>商品一覧(管理)</h1>
     <div class="itemregi">
-        <a href="item/register">商品登録</a>
+        <a href="/item/register">商品登録</a>
     </div>
   </div>
 
@@ -31,13 +31,17 @@
   </tr>
   @foreach($items as $value)
     <tr>
-      <td>{{$value->id}}</td>
+      <td style="width: 50px;">{{$value->id}}</td>
       <td>{{$value->name}}</td>
       <td>{{$value->status}}</td>
-      <td>{{$value->created_at}}</td>
-      <td>{{$value->updated_at}}</td>
-      <td>{{$value->effective}}</td>
-      <td><a href="item/edit/{{$value->id}}">更新</a></td>
+      <td>{{$value->created_at->format('Y年m月d日h時i分')}}</td>
+      <td>{{$value->updated_at->format('Y年m月d日h時i分')}}</td>
+      @if ($value->effective == "無効")
+      <td class="text-danger">無効</td>
+      @else
+      <td>有効</td>
+      @endif
+      <td><a href="/item/edit/{{$value->id}}">更新</a></td>
     </tr>
     @endforeach
   </table>
