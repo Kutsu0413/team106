@@ -27,19 +27,19 @@ class ItemController extends Controller
 
 
     public function register() {   
-            return view('item.register');
-        }
+            return view('item.register');  
+    }
 
-        public function itemRegister(Request $request){
-            $item = new item();
-            $item->user_id = 0;// Auth::id();
-            $item->name = $request->name;
-            $item->status = $request->status;
-            $item->detail = $request->detail;
-            $item->effective = $request->effective;
-            $item->save();
+    public function itemRegister(Request $request){
+        $item = new item();
+        $item->user_id = 0;// Auth::id();
+        $item->name = $request->name;
+        $item->status = $request->status;
+        $item->detail = $request->detail;
+        $item->effective = $request->effective;
+        $item->save();
 
-            return redirect('item');
+        return redirect('item');
     }
 
         
@@ -50,16 +50,16 @@ class ItemController extends Controller
             ]);
         }
         
-        public function itemEdit(Request $request){
+    public function itemEdit(Request $request){
 
-            //商品情報更新のプログラム
+        //商品情報更新のプログラム
 
-            $Item = Item::where('id', '=', $request->id)->first();
-            $Item->name = $request->name;
-            $Item->status = $request->status;
-            $Item->detail = $request->detail;
-            $Item->effective = $request->effective; 
-            $Item->save();
+        $Item = Item::where('id', '=', $request->id)->first();
+        $Item->name = $request->name;
+        $Item->status = $request->status;
+        $Item->detail = $request->detail;
+        $Item->effective = $request->effective; 
+        $Item->save();
 
             return redirect('/item');
     }
