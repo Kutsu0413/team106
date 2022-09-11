@@ -29,7 +29,7 @@ Route::post('/store', [AccountController::class, 'store'])->name('register.user'
 
 //ログイン処理
 Route::post('/signin', [AccountController::class, 'postSignin'])->name('login.user');
-Route::get('/test', function () {return view('account.test');})->name('test');
+// Route::get('/test', function () {return view('account.test');})->name('test');
 
 //アクセス制御
 Route::group(['middleware' => ['auth', 'can:admin']], function () {
@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth', 'can:admin']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'can:general_user']], function () {
-    Route::post('/signin', [AccountController::class, 'postSignin'])->name('login.user');
+    // Route::post('/signin', [AccountController::class, 'postSignin'])->name('login.user');
     Route::get('/test', function () {return view('account.test');})->name('test');
 });
 
