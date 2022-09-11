@@ -31,7 +31,7 @@
   </tr>
   @foreach($items as $value)
     <tr>
-      <td>{{$value->id}}</td>
+      <td style="width: 50px;">{{$value->id}}</td>
       <td>{{$value->name}}</td>
       <td>{{$value->status}}</td>
       <td>{{$value->created_at->format('Y年m月d日h時i分')}}</td>
