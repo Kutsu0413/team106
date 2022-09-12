@@ -51,6 +51,9 @@ Route::post('item/edit/{id}',[App\Http\Controllers\ItemController::class, 'itemE
 
 //北田さん
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home/detail/{id}', [App\Http\Controllers\HomeController::class, 'detail'])->name('items.detail');
+Route::post('/home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('items.search');
+
 
 //黒島さん
 Route::get('/user',[UserController::class,'index'])->name('posts.index');

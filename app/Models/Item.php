@@ -11,7 +11,7 @@ class Item extends Model
 
     protected $table = 'items';
 
-    protected $primarykey = 'user_id';
+
 
     public function findallhome()
     {
