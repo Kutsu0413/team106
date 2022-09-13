@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->biginteger('user_id');
             $table->string('name',100);
             $table->tinyInteger('status');
+            $table->tinyInteger('type');
             $table->text('detail');
             $table->timestamps();
         });
