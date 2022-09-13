@@ -31,7 +31,7 @@
 
 @endif
 
-
+{{ $items->links() }}
 
 </body>
 </html>

@@ -32,9 +32,9 @@ class HomeController extends Controller
         //print("keyword[".$keyword."]\n");
 
         if($keyword){
-            $items = Item::where('item_class', 'LIKE', "%$keyword%")->paginate(10);
+            $items = Item::where('item_class', 'LIKE', "%$keyword%")->paginate(20);
         }else{
-            $items = Item::select('*')->paginate(10);
+            $items = Item::select('*')->paginate(20);
             $keyword='全件表示';
         }
 
