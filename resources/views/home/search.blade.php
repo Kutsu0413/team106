@@ -19,10 +19,10 @@
     @foreach($items as $item) 
         <tr>
         <td>{{ $item->id }}</td>
-        <td>{{ $item->item_class }}</td>
-        <td>{{ $item->item_name }}</td>
+        <td>{{ $item->user_id }}</td>
+        <td>{{ $item->name }}</td>
         <td>{{ $item->updated_at }}</td>
-        <td>{{ $item->item_detail }}</td>
+        <td>{{ $item->detail }}</td>
         </tr>  
     @endforeach
 </table>
