@@ -54,7 +54,7 @@ class AccountController extends Controller
     {
         $request->validate([
             'email' => ['required','email'],
-            'password' => ['required', 'min:8']
+            'password' => ['required']
         ],
         [
         'email.required'  => 'メールアドレスは必須です。',
