@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //ログイン画面
-Route::get('/', function () {return view('account.login');})->name('top');;
+Route::get('/', function () {return view('account.login');})->name('login');
 //登録画面
 Route::get('/register', function () {return view('account.register');})->name('register');
 Route::post('/store', [AccountController::class, 'store'])->name('register.user');
