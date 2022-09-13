@@ -16,6 +16,8 @@ class Item extends Model
         4=>"パン",
         5=>"麺類",
     ];
+    protected $table = 'items';
+
 }
 
 
