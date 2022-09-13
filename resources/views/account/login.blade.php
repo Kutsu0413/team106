@@ -12,6 +12,16 @@
 <body>
     <!-- バリデーションエラーの表示 -->
     @include('account.error')
+    <!-- フラッシュメッセージ -->
+    @if (session('flash_message'))
+        <div class="flash_message">
+            {{ session('flash_message') }}
+        </div>
+    @endif
+
+    <main class="mt-4">
+        @yield('content')
+    </main>
     <div class="container mt-5">
     <form class="form" action="{{ route('login.user') }}" method="POST" > 
     @csrf  
