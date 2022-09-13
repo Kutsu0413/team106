@@ -61,7 +61,7 @@ class AccountController extends Controller
         'password.required'  => 'パスワードは必須です。',
         ]);
         if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
-            return redirect('test');
+            return redirect('/home');
             //view('account.test');
     }
         return redirect()->back()->withErrors(['msg'=>'不正な入力値です']);
