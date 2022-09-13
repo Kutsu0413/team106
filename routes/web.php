@@ -59,4 +59,11 @@ Route::group(['middleware' => ['auth', 'can:general_user']], function () {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
 //黒島さん
+<<<<<<< HEAD
+Route::get('/user',[UserController::class,'index'])->name('post,index');
+Route::get('/edit/{id}',[UserController::class,'edit']);
+Route::post('/Useredit',[UserController::class,'Useredit']);
+Route::get('/UserDelete/{id}',[UserController::class,'UserDelete']);
+=======
 // Route::get('/user',[UserController::class,'index'])->name('posts.index');
+>>>>>>> af6da2bf903d029056005d1282604921c8b64059
