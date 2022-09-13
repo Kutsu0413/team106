@@ -5,41 +5,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }}</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 </head>
 <body>
-
-//* 検索機能ここから *//
-<div>
-  <form action="{{ route('posts.index') }}" method="GET">
-    <input type="text" name="name" value="{{ $keyword }}">
-    <input type="submit" value="検索">
-  </form>
-</div>
-//*検索機能ここまで*//
-
-<h1>
-  <span>user 一覧</span>
-  <a href="{{ route('posts.create') }}">[Add]</a>
-</h1>
-
-<div>
+@include('parts.header')
+<div class="container">
 {{-- <table border="1" style="margin: 10px" class="table">--}}
-    <table border="1" style="margin: 10px">
+    <h2 class="text-center mt-5">ユーザー一覧</h2>
+    <table class="table">
         <tr>
             <th>名前</th>
-            <th>電話番号</th>
             <th>メールアドレス</th>
             <th>権限</th>
-            <th>更新日</th>
+            <th>パスワード</th>
         </tr>
         @foreach($User as $value)
         <tr>
             <td>{{$value->name}}</td>
-            <td>{{$value->tel}}</td>
-            <td>{{$value->mail}}</td>
+            <td>{{$value->email}}</td>
             <td>{{$value->role}}</td>
-            <td>{{$value->timestamp}}</td>
+            <td>{{$value->password}}</td>
+            <td><a href="/edit/{{$value->id}}"> >>編集 </a></td>
         </tr>
         @endforeach
         </table>

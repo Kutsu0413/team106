@@ -53,4 +53,7 @@ Route::post('item/edit/{id}',[App\Http\Controllers\ItemController::class, 'itemE
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
 //黒島さん
-Route::get('/user',[UserController::class,'index'])->name('posts.index');
+Route::get('/user',[UserController::class,'index'])->name('post,index');
+Route::get('/edit/{id}',[UserController::class,'edit']);
+Route::post('/Useredit',[UserController::class,'Useredit']);
+Route::get('/UserDelete/{id}',[UserController::class,'UserDelete']);
