@@ -19,8 +19,9 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $items = Item::orderBy('created_at', 'desc')->get();
+        $types = Item::TYPES;
         return view('item.index', [
-            'items' => $items
+            'items' => $items,'types' => $types
         ]);
     }
 
@@ -31,12 +32,25 @@ class ItemController extends Controller
     }
 
     public function itemRegister(Request $request){
+
+        $request->validate([
+            'name' => ['required', 'string','max:100'],
+            'type' => ['required'],
+            'status' => ['required']
+        ],
+        $varidateMessage =[
+                'name.required' => '名前入力は必須です',
+                'type.required' => '種別選択は必須です',
+                'status.required' => 'ステータス選択は必須です'
+        ]);
+
+
         $item = new item();
         $item->user_id = 0;// Auth::id();
         $item->name = $request->name;
-        $item->status = $request->status;
+        $item->type = $request->type;
         $item->detail = $request->detail;
-        $item->effective = $request->effective;
+        $item->status = $request->status;
         $item->save();
 
         return redirect('item');
@@ -52,13 +66,25 @@ class ItemController extends Controller
         
     public function itemEdit(Request $request){
 
+        $request->validate([
+            'name' => ['required', 'string','max:100'],
+            'type' => ['required'],
+            'status' => ['required']
+        ],
+        $varidateMessage =[
+                'name.required' => '名前入力は必須です',
+                'name.max:100' => '100文字以内で入力してください',
+                'type.required' => '種別選択は必須です',
+                'status.required' => 'ステータス選択は必須です'
+        ]);
+
         //商品情報更新のプログラム
 
         $Item = Item::where('id', '=', $request->id)->first();
         $Item->name = $request->name;
-        $Item->status = $request->status;
+        $Item->type = $request->type;
         $Item->detail = $request->detail;
-        $Item->effective = $request->effective; 
+        $Item->status = $request->status;
         $Item->save();
 
             return redirect('/item');
