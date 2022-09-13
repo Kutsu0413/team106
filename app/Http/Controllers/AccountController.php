@@ -61,9 +61,18 @@ class AccountController extends Controller
         'password.required'  => 'パスワードは必須です。',
         ]);
         if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
-            return redirect('test');
+            return redirect('/home');
             //view('account.test');
     }
         return redirect()->back()->withErrors(['msg'=>'不正な入力値です']);
     }
+
+        /**
+     * ログアウト処理
+     */
+
+    public function getLogout(){
+        Auth::logout();
+        return redirect()->route('login')->with('flash_message', 'ログアウトしました');
+        }
 }

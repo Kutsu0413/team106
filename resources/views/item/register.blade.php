@@ -9,25 +9,36 @@
     <link rel="stylesheet" href="/assets/css/style_m.css">
     <title>登録</title>
 </head>
-<body class="container" style="text-align: center;">
-<main>
+<body class="container">
+@include('parts.header')
+@if(count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+@endif
+
+<main style="text-align:center">
 
 <h1>商品登録・更新</h1>
 <form action="register" method="POST">
         @csrf
     <input type="text" value="" placeholder="名前" name="name" class="button_m">
-    <input type="radio" value="1" name="status">1
-    <input type="radio" value="2" name="status">2
-    <input type="radio" value="3" name="status">3
-    <input type="radio" value="4" name="status">4
-    <input type="radio" value="5" name="status">5
+    <input type="radio" value="1" name="type">肉
+    <input type="radio" value="2" name="type">野菜
+    <input type="radio" value="3" name="type">米
+    <input type="radio" value="4" name="type">パン
+    <input type="radio" value="5" name="type">麺類
     <textarea name="detail" rows="4" cols="50" placeholder="詳細" class="button_m"></textarea>
-    <input type="radio" name="effective" value="有効" checked>有効
-    <input type="radio" name="effective" value="無効">無効
+    <input type="radio" name="status" value="1" checked>有効
+    <input type="radio" name="status" value="2">無効
     <div class="itemregi">  
-        <input type="submit" value="登録">
+    <input type="submit" value="登録" class="btn btn-secondary">
     </div>
-    <!-- <input type="hidden" value="有効" name="effective"> -->
+    <!-- <input type="hidden" value="有効" name="status"> -->
 </form>
 
 </main>
