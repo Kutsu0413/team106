@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 //ログイン画面
 Route::get('/', function () {return view('account.login');})->name('login');
+//ログアウト画面
+Route::get('/logout', [AccountController::class, 'getLogout'])->name('logout.user');
 //登録画面
 Route::get('/register', function () {return view('account.register');})->name('register');
 Route::post('/store', [AccountController::class, 'store'])->name('register.user');

@@ -66,4 +66,13 @@ class AccountController extends Controller
     }
         return redirect()->back()->withErrors(['msg'=>'不正な入力値です']);
     }
+
+        /**
+     * ログアウト処理
+     */
+
+    public function getLogout(){
+        Auth::logout();
+        return redirect()->route('login')->with('flash_message', 'ログアウトしました');
+        }
 }
