@@ -10,29 +10,41 @@
     <title>商品更新</title>
 </head>
 
-<body class="container" style="text-align: center;">
+<body class="container">
+@if(count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+@endif
+
+<main style="text-align: center;">
 
 <h1>商品更新 商品ID：{{$item->id}}</h1>
 <form action="/item/edit/{{$item->id}}" method="POST">
     @csrf
     <input type="hidden" value="{{$item->id}}" name="id" style="display: block;">
     <input type="text" value="{{$item->name}}" name="name" class="button_m">
-    <input type="radio" value="1" name="status" @if($item->status == 1) checked @endif>1
-    <input type="radio" value="2" name="status" @if($item->status == 2) checked @endif>2
-    <input type="radio" value="3" name="status" @if($item->status == 3) checked @endif>3
-    <input type="radio" value="4" name="status" @if($item->status == 4) checked @endif>4
-    <input type="radio" value="5" name="status" @if($item->status == 5) checked @endif>5
+    <input type="radio" value="1" name="type" @if($item->type == 1) checked @endif>肉
+    <input type="radio" value="2" name="type" @if($item->type == 2) checked @endif>野菜
+    <input type="radio" value="3" name="type" @if($item->type == 3) checked @endif>米
+    <input type="radio" value="4" name="type" @if($item->type == 4) checked @endif>パン
+    <input type="radio" value="5" name="type" @if($item->type == 5) checked @endif>麺類
     <textarea name="detail" rows="4" cols="50" class="button_m">{{$item->detail}}</textarea>
-    <input type="radio" name="effective" value="有効" @if($item->effective == "有効") checked @endif>有効
-    <input type="radio" name="effective" value="無効" @if($item->effective == "無効") checked @endif>無効
+    <input type="radio" name="status" value="1" @if($item->status == "1") checked @endif>有効
+    <input type="radio" name="status" value="2" @if($item->status == "2") checked @endif>無効
     <div class="itemregi">
-        <input type="submit" value="登録">
+        <input type="submit" value="登録" class="btn btn-secondary">
     </div>
     
 </form>
     @csrf
 <input type="hidden" value="{{$item->id}}" name="id" style="display: block;">
 </form>
-    
+   
+</main>
 </body>
 </html>

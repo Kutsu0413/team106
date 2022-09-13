@@ -58,7 +58,13 @@ Route::group(['middleware' => ['auth', 'can:general_user']], function () {
 // Route::post('item/edit/{id}',[App\Http\Controllers\ItemController::class, 'itemEdit']);
 
 //北田さん
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home/detail/{id}', [App\Http\Controllers\HomeController::class, 'detail'])->name('items.detail');
+Route::post('/home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('items.search');
+
 
 //黒島さん
-// Route::get('/user',[UserController::class,'index'])->name('posts.index');
+Route::get('/user',[UserController::class,'index'])->name('post,index');
+Route::get('/edit/{id}',[UserController::class,'edit']);
+Route::post('/Useredit',[UserController::class,'Useredit']);
+Route::get('/UserDelete/{id}',[UserController::class,'UserDelete']);

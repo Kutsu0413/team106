@@ -9,34 +9,35 @@
     <link rel="stylesheet" href="/assets/css/style_m.css">
     <title>商品一覧</title>
 </head>
-<body class="container" style="text-align:center">
+<body class="container">
 
+<main style="text-align:center">
   <div>
     <h1>商品一覧(管理)</h1>
     <div class="itemregi">
-        <a href="/item/register">商品登録</a>
+        <a class="btn btn-secondary" href="/item/register">商品登録</a>
     </div>
   </div>
 
 <table border="1">
   <tbody>
   <tr>
-  <th>ID</th>
+  <th style="width: 50px;">ID</th>
   <th>名前</th>
-  <th>種別</th>
+  <th style="width: 50px;">種別</th>
   <th>登録日時</th>
   <th>更新日時</th>
-  <th>状態</th>
-  <th></th>
+  <th style="width: 50px;">状態</th>
+  <th style="width: 50px;"></th>
   </tr>
   @foreach($items as $value)
     <tr>
-      <td style="width: 50px;">{{$value->id}}</td>
+      <td>{{$value->id}}</td>
       <td>{{$value->name}}</td>
-      <td>{{$value->status}}</td>
+      <td>{{$types[$value->type]}}</td>
       <td>{{$value->created_at->format('Y年m月d日h時i分')}}</td>
       <td>{{$value->updated_at->format('Y年m月d日h時i分')}}</td>
-      @if ($value->effective == "無効")
+      @if ($value->status == "2")
       <td class="text-danger">無効</td>
       @else
       <td>有効</td>
@@ -46,5 +47,6 @@
     @endforeach
   </table>
     
+</main>
 </body>
 </html>
