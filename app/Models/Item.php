@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
+
+    protected $table = 'items';
+
+
+
+    public function findallhome()
+    {
+        return Home::all();
+    }
+
+
 }
