@@ -10,6 +10,7 @@
     <title>登録</title>
 </head>
 <body class="container">
+@include('parts.header')
 @if(count($errors) > 0)
         <div class="alert alert-danger">
             <ul>

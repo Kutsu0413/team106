@@ -10,7 +10,7 @@
     <title>商品一覧</title>
 </head>
 <body class="container">
-
+@include('parts.header')
 <main style="text-align:center">
   <div>
     <h1>商品一覧(管理)</h1>
