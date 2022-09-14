@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 //ログイン画面
 Route::get('/', function () {return view('account.login');})->name('login');
+//ログアウト画面
+Route::get('/logout', [AccountController::class, 'getLogout'])->name('logout.user');
 //登録画面
 Route::get('/register', function () {return view('account.register');})->name('register');
 Route::post('/store', [AccountController::class, 'store'])->name('register.user');
@@ -56,7 +58,10 @@ Route::group(['middleware' => ['auth', 'can:general_user']], function () {
 // Route::post('item/edit/{id}',[App\Http\Controllers\ItemController::class, 'itemEdit']);
 
 //北田さん
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home/detail/{id}', [App\Http\Controllers\HomeController::class, 'detail'])->name('items.detail');
+Route::post('/home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('items.search');
+
 
 //黒島さん
 Route::get('/user',[UserController::class,'index'])->name('post,index');

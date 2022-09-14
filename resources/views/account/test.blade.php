@@ -16,6 +16,8 @@
 
     <a href="/admin">管理者画面</a>
 
+    <a href="{{ route('logout.user') }}">ログアウト</a>
+
 
 </div>
     
