@@ -26,10 +26,10 @@
     <tbody>
     <tr>
         <td>{{ $items->id }}</td>
-        <td>{{ $items->item_class }}</td>
-        <td>{{ $items->item_name }}</td>
+        <td>{{ $items->user_id }}</td>
+        <td>{{ $items->name }}</td>
         <td>{{ $items->updated_at }}</td>
-        <td>{{ $items->item_detail }}</td>
+        <td>{{ $items->detail }}</td>
     </tr>
 </table>
 
