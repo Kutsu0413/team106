@@ -34,19 +34,22 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>種別</th>
-                <th>商品名</th>
-                <th>更新日</th>
-                <th>詳細ページ</th>
+                
+            <th>ID</th>
+            <th>名前</th>
+            <th>種別</th>
+            <th>登録日時</th>
+            <th>更新日時</th>
+            <th>詳細ページ</th>
             </tr>
         </thead>
     <tbody>
     @foreach ($items as $item)
     <tr>
         <td><a href="{{route('items.detail', $item->id)}}">{{ $item->id }}</a></td>
-        <td>{{ $item->item_class }}</td>
-        <td>{{ $item->item_name }}</td>
+        <td>{{ $item->name }}</td>
+        <td>{{ $item->type }}</td>
+        <td>{{ $item->created_at }}</td>
         <td>{{ $item->updated_at }}</td>
         <td><a href="{{route('items.detail', $item->id)}}" class="btn btn-primary">リンク</a></td>
     </tr>

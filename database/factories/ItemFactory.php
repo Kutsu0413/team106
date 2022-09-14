@@ -14,9 +14,9 @@ class ItemFactory extends Factory
     public function definition()
     {
         return [
-            'item_class' => $this->faker->name(),
-            'item_name' => $this->faker->name(),
-            'item_detail' => $this->faker->realText(30)
+            'user_id' => $this->faker->name(),
+            'name' => $this->faker->name(),
+            'detail' => $this->faker->realText(30)
         ];
     }
 }
