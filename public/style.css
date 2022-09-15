@@ -1,0 +1,25 @@
+.container{    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.title{
+    text-align: center;
+    font-style: italic;
+}
+.btn{
+    background-color: #EEEEEE;
+    color: black;
+    font-weight: bold;
+    border-color: black;
+}
+.link{
+    text-align: center;
+}
+.form{
+    width: 426px;
+}
+.flash_message {
+    background: #AEFFBD;
+    padding: 20px;
+}
