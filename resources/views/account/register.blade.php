@@ -19,15 +19,15 @@
         <div class="row">
             <div class="mb-3">
                 <label for="exampleInputName" class="form-label">ユーザーネーム</label>
-                <input type="name" name="name" class="form-control" id="InputName" >
+                <input type="name" name="name" class="form-control" id="InputName" value="{{ old('name') }}">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">メールアドレス</label>
-                <input type="email" name="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
+                <input type="email" name="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" value="{{ old('email') }}"> 
             </div>
             <input class="form-check-input" name="role" type="hidden" id="inlineRadio1" value="1">
             <div class="mb-3 ">
-                <label for="exampleInputPassword1" class="form-label">パスワード</label>
+                <label for="exampleInputPassword1" class="form-label">パスワード(8文字以上)</label>
                 <input type="password" name="password" class="form-control" id="InputPassword">
             </div>
             <div class="mb-5 ">
