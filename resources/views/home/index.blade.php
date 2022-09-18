@@ -9,7 +9,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    
+@include('parts.header')
 
     <h1>商品一覧</h1>
     
@@ -44,7 +44,8 @@
             </tr>
         </thead>
     <tbody>
-    @foreach ($items as $item)
+    @foreach ($items as $item){
+    }
     <tr>
         <td><a href="{{route('items.detail', $item->id)}}">{{ $item->id }}</a></td>
         <td>{{ $item->name }}</td>

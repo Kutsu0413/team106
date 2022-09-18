@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+@include('parts.header')
 
     <h1>商品詳細</h1>
     
@@ -19,16 +19,16 @@
                 <th>ID</th>
                 <th>種別</th>
                 <th>商品名</th>
-                <th>更新日</th>
+                <th>更新日時</th>
                 <th>詳細</th>
             </tr>
         </thead>
     <tbody>
     <tr>
         <td>{{ $items->id }}</td>
-        <td>{{ $items->user_id }}</td>
         <td>{{ $items->name }}</td>
-        <td>{{ $items->updated_at }}</td>
+        <td>{{ $items->type }}</td>
+        <td>{{ $items->created_at }}</td>
         <td>{{ $items->detail }}</td>
     </tr>
 </table>
