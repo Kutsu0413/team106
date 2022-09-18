@@ -9,6 +9,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
+        
         $items = Item::all();
         $items = Item::paginate(20);
 
