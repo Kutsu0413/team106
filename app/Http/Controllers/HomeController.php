@@ -11,7 +11,6 @@ class HomeController extends Controller
     {
         
         $items = Item::all();
-        $items = $items->intersect(Item::whereIn('type',[2])->get());
         $items = Item::paginate(20);
 
         return view('home.index',['items' => $items,
