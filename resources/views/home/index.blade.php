@@ -59,6 +59,13 @@
     </tbody>
 </table>
 
+<div class="container">
+    @foreach ($items as $item)
+        {{ $item->fieldname}}
+    @endforeach
+</div>
+
+{{ $items->links() }}
 
 </body>
 </html>
