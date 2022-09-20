@@ -26,8 +26,12 @@
         <tr>
             <td>{{$value->name}}</td>
             <td>{{$value->email}}</td>
-            <td>{{$value->role}}</td>
-            <td>{{$value->password}}</td>
+            <td>@if($value->role==2)
+                管理者
+            @else
+                利用者
+            @endif
+            </td>
             <td><a href="/edit/{{$value->id}}"> >>編集 </a></td>
         </tr>
         @endforeach
