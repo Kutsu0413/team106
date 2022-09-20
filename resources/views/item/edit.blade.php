@@ -28,13 +28,13 @@
 <form action="/item/edit/{{$item->id}}" method="POST">
     @csrf
     <input type="hidden" value="{{$item->id}}" name="id" style="display: block;">
-    <input type="text" value="{{ old('name',$item->name) }}" name="name" class="button_m">
-    <input type="radio" value=1 {{ old('type') == 1 ? 'checked' : '' }} name="type" @if($item->type == 1) checked @endif>肉
-    <input type="radio" value=2 {{ old('type') == 2 ? 'checked' : '' }} name="type" @if($item->type == 2) checked @endif>野菜
-    <input type="radio" value=3 {{ old('type') == 3 ? 'checked' : '' }} name="type" @if($item->type == 3) checked @endif>米
-    <input type="radio" value=4 {{ old('type') == 4 ? 'checked' : '' }} name="type" @if($item->type == 4) checked @endif>パン
-    <input type="radio" value=5 {{ old('type') == 5 ? 'checked' : '' }} name="type" @if($item->type == 5) checked @endif>麺類
-    <textarea name="detail" rows="4" cols="50" class="button_m">{{ old('detail',$item->detail) }}</textarea>
+    <input type="text" value="{{$item->name}}" name="name" class="button_m">
+    <input type="radio" value="1" name="type" @if($item->type == 1) checked @endif>肉
+    <input type="radio" value="2" name="type" @if($item->type == 2) checked @endif>野菜
+    <input type="radio" value="3" name="type" @if($item->type == 3) checked @endif>米
+    <input type="radio" value="4" name="type" @if($item->type == 4) checked @endif>パン
+    <input type="radio" value="5" name="type" @if($item->type == 5) checked @endif>麺類
+    <textarea name="detail" rows="4" cols="50" class="button_m">{{$item->detail}}</textarea>
     <input type="radio" name="status" value="1" @if($item->status == "1") checked @endif>有効
     <input type="radio" name="status" value="2" @if($item->status == "2") checked @endif>無効
     <div class="itemregi">

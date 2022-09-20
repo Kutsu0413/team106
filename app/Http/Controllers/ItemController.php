@@ -46,7 +46,7 @@ class ItemController extends Controller
 
 
         $item = new item();
-        $item->user_id = Auth::id();
+        $item->user_id = 0;// Auth::id();
         $item->name = $request->name;
         $item->type = $request->type;
         $item->detail = $request->detail;

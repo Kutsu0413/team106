@@ -26,13 +26,13 @@
 <h1>商品登録・更新</h1>
 <form action="register" method="POST">
         @csrf
-    <input type="text" value="{{ old('name') }}" placeholder="名前" name="name" class="button_m">
-    <input type="radio" value=1 {{ old('type') == 1 ? 'checked' : '' }} name="type">肉
-    <input type="radio" value=2 {{ old('type') == 2 ? 'checked' : '' }} name="type">野菜
-    <input type="radio" value=3 {{ old('type') == 3 ? 'checked' : '' }} name="type">米
-    <input type="radio" value=4 {{ old('type') == 4 ? 'checked' : '' }} name="type">パン
-    <input type="radio" value=5 {{ old('type') == 5 ? 'checked' : '' }} name="type">麺類
-    <textarea name="detail" rows="4" cols="50" placeholder="詳細" class="button_m">{{ old('detail') }}</textarea>
+    <input type="text" value="" placeholder="名前" name="name" class="button_m">
+    <input type="radio" value="1" name="type">肉
+    <input type="radio" value="2" name="type">野菜
+    <input type="radio" value="3" name="type">米
+    <input type="radio" value="4" name="type">パン
+    <input type="radio" value="5" name="type">麺類
+    <textarea name="detail" rows="4" cols="50" placeholder="詳細" class="button_m"></textarea>
     <input type="radio" name="status" value="1" checked>有効
     <input type="radio" name="status" value="2">無効
     <div class="itemregi">  
