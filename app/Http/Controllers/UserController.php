@@ -31,18 +31,6 @@ class UserController extends Controller
     
 
     public function Useredit(Request $request){
-        $rulus = [
-            'name' => 'required',
-            'email' => 'required | between:0,150',
-          ];
-        
-          $message = [
-            'name.required' => '名前を入力してください',
-            'email.required' => 'メールアドレスを入力してください',
-          ];
-        
-        $request->validate($rulus, $message);
-        
         if($request->role==null){
             $role=1;
         }
@@ -53,6 +41,7 @@ class UserController extends Controller
         $User = User::where('id','=',$request->id)->first();
         $User->name =$request->name;
         $User->email =$request->email;
+        $User->password =$request->password;
         $User->role =$role;
         $User->save();
     

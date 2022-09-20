@@ -44,7 +44,7 @@ class AccountController extends Controller
 
         $registerUser = $this->user->InsertUser($request);  
         
-        return redirect('/');
+        return redirect('/')->with('flash_message', '登録完了');
     }
     /**
      * ログイン処理
