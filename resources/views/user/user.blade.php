@@ -20,7 +20,7 @@
             <th>名前</th>
             <th>メールアドレス</th>
             <th>権限</th>
-            <th>パスワード</th>
+            <th></th>
         </tr>
         @foreach($User as $value)
         <tr>

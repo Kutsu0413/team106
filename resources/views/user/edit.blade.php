@@ -40,8 +40,6 @@
         <th>メールアドレス</th>
         <input class="form-control container mt-4" type="text" name="email" value="{{$User->email}}">
         </div>
-        <div class="form-group">
-        </div>
         <div class="form-group container mt-4">
         <th>権限</th>
         <div class="form-check">
